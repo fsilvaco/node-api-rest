@@ -18,8 +18,13 @@ router.get("/:id_produto", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
+  const produto = {
+    nome: req.body.nome,
+    preco: req.body.preco,
+  };
   res.status(200).send({
     mensagem: "Novo produto adicionado",
+    produtoCriado: produto,
   });
 });
 
