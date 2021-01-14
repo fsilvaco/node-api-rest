@@ -1,7 +1,10 @@
-const http = require("http");
-const app = require("./app");
-const port = process.env.PORT || 3000;
+const express = require("express");
+const app = express();
+const port = 3000;
 
-const server = http.createServer(app);
-
-server.listen(port);
+app.listen(port, () => {
+  console.log(`App rodando na porta ${port}`);
+});
+app.get("/", (req, res) => {
+  res.send("Hello word");
+});
