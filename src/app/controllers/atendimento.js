@@ -1,3 +1,11 @@
-module.exports = (req, res) => {
-  res.send("GET dentro da rota /controllers/atendimento");
+const atendimentoController = {
+  get(req, res) {
+    res.send("GET de /controllers/atendimento");
+  },
+
+  post(req, res) {
+    res.send("POST de /controllers/atendimento");
+  },
 };
+
+module.exports = atendimentoController;

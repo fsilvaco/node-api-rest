@@ -1,10 +1,7 @@
-const atendimento = require("express").Router();
-const atendimentoControllers = require("../controllers/atendimento");
+const router = require("express").Router();
+const atendimentoController = require("../controllers/atendimento");
 
-atendimento.get("/", atendimentoControllers);
+router.get("/", atendimentoController.get);
+router.post("/", atendimentoController.post);
 
-// atendimento.post("/", (req, res) => {
-//   res.send("Rota POST /atendimento");
-// });
-
-module.exports = atendimento;
+module.exports = router;
