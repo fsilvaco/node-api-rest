@@ -1,6 +1,10 @@
+const users = [
+  { name: "Jones", email: "jones@gmail.com" },
+  { name: "Henrique", email: "henrique@hotmail.com" },
+];
 const atendimentoController = {
   get(req, res) {
-    res.send("GET de /controllers/atendimento");
+    res.json(users);
   },
 
   post(req, res) {
