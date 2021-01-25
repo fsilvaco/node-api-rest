@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const product = require("../app/routes/product");
 const app = express();
 
 app.use(
@@ -9,7 +10,6 @@ app.use(
 );
 app.use(bodyParser.json());
 
-const atendimento = require("../app/routes/atendimento");
-app.use("/atendimento", atendimento);
+app.use("/product", product);
 
 module.exports = app;

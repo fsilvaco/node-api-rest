@@ -1,7 +1,9 @@
-const mongoose = require('mongoose')
-
-mongoose.connect('mongodb://localhost/noderest', { useMongoClient: true })
+const mongoose = require("mongoose");
 
 mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://localhost/noderest", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 module.exports = mongoose;
