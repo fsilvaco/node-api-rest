@@ -1,7 +1,7 @@
 const Product = require("../models/product");
 
 const productController = {
-  async post(req, res) {
+  async createProduct(req, res) {
     try {
       const product = await Product.create(req.body);
       return res.send({ product });
@@ -10,7 +10,7 @@ const productController = {
     }
   },
 
-  async get(req, res) {
+  async showProducts(req, res) {
     try {
       const product = await Product.find();
       return res.send({ product });
@@ -18,7 +18,7 @@ const productController = {
       return res.status(400).send({ erro: "Product find failed" });
     }
   },
-  async searchById(req, res) {
+  async showProductById(req, res) {
     try {
       const urlParameter = req.params.id;
       const product = await Product.findById(urlParameter);
