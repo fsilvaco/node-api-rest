@@ -1,3 +1,4 @@
+const { get } = require("mongoose");
 const Product = require("../models/product");
 
 const productController = {
@@ -7,6 +8,15 @@ const productController = {
       return res.send({ product });
     } catch (err) {
       return res.status(400).send({ erro: "Product failed" });
+    }
+  },
+
+  async get(req, res) {
+    try {
+      const product = await Product.find();
+      return res.send({ product });
+    } catch (err) {
+      return res.status(400).send({ erro: "Product find failed" });
     }
   },
 };
