@@ -10,6 +10,6 @@ app.use(
 );
 app.use(bodyParser.json());
 
-app.use("/product", product);
+app.use(`/v1/product`, product);
 
 module.exports = app;

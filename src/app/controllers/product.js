@@ -4,7 +4,7 @@ const productController = {
   async createProduct(req, res) {
     try {
       const product = await Product.create(req.body);
-      return res.send({ product });
+      return res.send(`Product ${product.name} created`);
     } catch (err) {
       return res.status(400).send({ erro: "Product failed" });
     }
@@ -35,6 +35,16 @@ const productController = {
       return res.send(`Product ${product.id} deleted`);
     } catch {
       return res.status(400).send({ erro: "Product not found" });
+    }
+  },
+
+  async updateProduct(req, res) {
+    try {
+      const urlParameter = req.params.id;
+      const product = await Product.findByIdAndUpdate(urlParameter, req.body);
+      return res.send(`Product ${product.id} updated`);
+    } catch {
+      return res.status(400).send({ erro: "Product not updated" });
     }
   },
 };
