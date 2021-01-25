@@ -15,7 +15,7 @@ const productController = {
       const product = await Product.find();
       return res.send({ product });
     } catch (err) {
-      return res.status(400).send({ erro: "Product find failed" });
+      return res.status(400).send({ erro: "Product not found" });
     }
   },
   async showProductById(req, res) {
@@ -24,7 +24,17 @@ const productController = {
       const product = await Product.findById(urlParameter);
       return res.send(product);
     } catch (err) {
-      return res.status(400).send({ erro: "Product find failed" });
+      return res.status(400).send({ erro: "Product not found" });
+    }
+  },
+
+  async deleteProductById(req, res) {
+    try {
+      const urlParameter = req.params.id;
+      const product = await Product.findByIdAndDelete(urlParameter);
+      return res.send(`Product ${product.id} deleted`);
+    } catch {
+      return res.status(400).send({ erro: "Product not found" });
     }
   },
 };
