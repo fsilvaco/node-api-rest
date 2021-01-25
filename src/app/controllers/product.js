@@ -1,4 +1,3 @@
-const { get } = require("mongoose");
 const Product = require("../models/product");
 
 const productController = {
@@ -15,6 +14,15 @@ const productController = {
     try {
       const product = await Product.find();
       return res.send({ product });
+    } catch (err) {
+      return res.status(400).send({ erro: "Product find failed" });
+    }
+  },
+  async searchById(req, res) {
+    try {
+      const urlParameter = req.params.id;
+      const product = await Product.findById(urlParameter);
+      return res.send(product);
     } catch (err) {
       return res.status(400).send({ erro: "Product find failed" });
     }
