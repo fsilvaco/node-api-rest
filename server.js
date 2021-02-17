@@ -1,5 +1,7 @@
+require('dotenv').config();
+
 const app = require("./src/config/custom-express");
 
-app.listen(3000, () => {
-  console.log("Servidor rodando na porta 3000...");
+app.listen(process.env.SERVER_PORT, () => {
+  console.log(`Servidor rodando na porta ${process.env.SERVER_PORT}`);
 });
