@@ -1,3 +1,5 @@
+#command: docker-compose up -d
+
 version: "3.7"
 
 services:
@@ -6,7 +8,7 @@ services:
     container_name: mongo-container
     restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: mongo123
+      MONGO_INITDB_ROOT_USERNAME: "${DB_USER}"
+      MONGO_INITDB_ROOT_PASSWORD: "${DB_PASS}"
     ports:
       - 27017:27017
