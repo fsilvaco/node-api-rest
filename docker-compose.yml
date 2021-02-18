@@ -1,5 +1,4 @@
 #command: docker-compose up -d
-
 version: "3.7"
 
 services:
@@ -11,4 +10,4 @@ services:
       MONGO_INITDB_ROOT_USERNAME: "${DB_USER}"
       MONGO_INITDB_ROOT_PASSWORD: "${DB_PASS}"
     ports:
-      - 27017:27017
+      - ${DB_PORT}:${DB_PORT}

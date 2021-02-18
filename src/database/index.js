@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const user = process.env.DB_USER
 const pass = process.env.DB_PASS
 const host = process.env.DB_HOST
-const port = process.env.DB_POST
+const port = process.env.DB_PORT
 const dbname = process.env.DB_NAME
 
 
