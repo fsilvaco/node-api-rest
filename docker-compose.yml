@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  db:
+    image: mongo
+    container_name: mongo-container
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: mongo123
+    ports:
+      - 27017:27017
